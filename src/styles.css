@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+	font-family:tahoma, arial, sans-serif;
+	font-size:14px;
+}
+
+div
+{
+	text-align: center;
+}
+
+table
+{
+	padding:5px;
+	border: 2px solid #333;
+	margin-top:10px;
+}
+
+td
+{
+	padding:5px;
+	border:1px solid #ccc
+}
+
+.pickone {
+	font-weight:bold;
+}
+
+th {
+	background-color: #e1e1e1;
+	padding:10px;
+}

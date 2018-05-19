@@ -1,0 +1,47 @@
+<div>
+	<div *ngIf="years" class="pickone">
+		Year: 
+		<select name="yearSelect" id="yearSelect" [(ngModel)]="selectedYear" (change)="getMakes(selectedYear)">
+			<option *ngFor="let item of years.menuItem" value="{{ item.value }}">{{ item.text }}</option>
+		</select>
+	</div><br/>
+	<div *ngIf="selectedYear && makes" class="pickone">
+		Make:
+		<select name="makeSelect" id="makeSelect" [(ngModel)]="selectedMake" (change)="getModels(selectedYear, selectedMake)">
+			<option *ngFor="let item of makes.menuItem" value="{{ item.value }}">{{ item.text }}</option>
+		</select>
+	</div><br/>
+	<div *ngIf="selectedMake && models" class="pickone">
+		Model:
+		<select name="modelSelect" id="modelSelect" [(ngModel)]="selectedModel" (change)="getOptions(selectedYear, selectedMake, selectedModel)">
+			<option *ngFor="let item of models.menuItem" value="{{ item.value }}">{{ item.text }}</option>
+		</select>
+	</div><br/>
+	<div *ngIf="selectedModel && options" class="pickone">
+		Options:
+		<select name="optionSelect" id="optionSelect" [(ngModel)]="selectedOption" (change)="getCar(selectedOption)">
+			<option *ngFor="let item of options.menuItem" value="{{ item.value }}">{{ item.text }}</option>
+		</select>
+	</div><br/>
+	<div *ngIf="carList && carList.length > 0">
+		Car List (add more by changing drop-downs above):
+		<table cellpadding="0" cellspacing="0" align="center">
+			<thead>
+				<th>Year</th>
+				<th>Make</th>
+				<th>Model</th>
+				<th>City mileage</th>
+				<th>Highway mileage</th>
+				<th></th>
+			</thead>
+			<tr *ngFor="let car of carList">
+				<td>{{ car.year }}</td>
+				<td>{{ car.make }}</td>
+				<td>{{ car.model }}</td>
+				<td>{{ car.city08 }}</td>
+				<td>{{ car.highway08 }}</td>
+				<td><button (click)="removeCar(car.id)">Remove</button></td>
+			</tr> 
+		</table>
+	</div>
+</div>
