@@ -14,6 +14,9 @@ export class CarsComponent implements OnInit {
 	models: MenuItems; // List of car models
 	options: MenuItems; // List of individual options by car
 	carList: Car[]; // List of cars retrieved by user
+	selectedYear: any;
+	selectedMake: any;
+	selectedModel: any;
 
 	// Pull in car service
   constructor(private carService: CarService) { }
